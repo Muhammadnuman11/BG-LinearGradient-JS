@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background linear gradient</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: black;
+        font-family: monospace;
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-size: 36px;
+        padding: 12px;
+        border-bottom: 1px dashed white;
+    }
+
+    .div {
+        padding: 12px;
+        margin: 12px 8px;
+        color: white;
+        font-family: monospace;
+        font-size: 18px;
+        border-radius: 12px;
+        height: 300px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #perantDiv {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #perantDiv div {
+        color: black;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    footer p {
+        font-size: 18px;
+        padding: 12px 0;
+        border-top: 1px dashed white;
+    }
+</style>
+
+<body>
+    <h1>Background linear gradient with Js </h1>
+    <div id="perantDiv"></div>
+    <footer>
+        <p>Powered By Nomi</p>
+    </footer>
+
+    <script>
+        for (let i = 1; i < 1001; i++) {
+            let createDiv = document.createElement('div');
+            createDiv.id = "div" + i;
+            createDiv.className = "div"
+            document.getElementById('perantDiv').appendChild(createDiv);
+            let num = '0123456789ABCDEF';
+            code1 = "";
+            code2 = "";
+
+            for (let index = 0; index < 6; index++) {
+                code1 += num.charAt(Math.floor(Math.random() * 16));
+                color1 = "#" + code1;
+            }
+            for (let index = 0; index < 6; index++) {
+                code2 += num.charAt(Math.floor(Math.random() * 16));
+                color2 = "#" + code2;
+            }
+
+
+            // Background 1````````````````````````````````````````___________________________
+            // createDiv.style.backgroundImage = `linear-gradient(to right top, ${color1}, ${color2})`;
+            // createDiv.innerHTML = `No:${i}  <br> <b>  Background color </b> <br> background-image: linear-gradient(to right top, ${color1}, ${color2});`;
+
+            // Background 2````````````````````````````````````````___________________________
+            // background: #659999;
+            // background: -webkit - linear - gradient(to bottom, #f4791f, #659999);
+            // background: linear - gradient(to bottom, #f4791f, #659999);
+
+            createDiv.style.background = color1;
+            createDiv.style.background = `-webkit-linear-gradient(to bottom, ${color1}, ${color2})`;
+            createDiv.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+            createDiv.innerHTML = `No:${i}  <br> Background CSS <br> <br>
+            background: ${color1};<br> 
+            background: -webkit-linear-gradient(to bottom, ${color1}, ${color2});<br> 
+            background: linear-gradient(to bottom, ${color1}, ${color2});`;
+
+
+        } 
+    </script>
+
+    <!-- <script>
+    for (let i = 1; i < 1001; i++) {
+    let createDiv = document.createElement('div');
+    createDiv.id = "div" + i;
+    createDiv.className = "div"
+    document.getElementById('perantDiv').appendChild(createDiv);
+    let color = "#" + Math.floor(100000 + Math.random() * 900000);
+    createDiv.style.background = color;
+    createDiv.innerHTML = `No:${i}  <br>  color <br> ${color}`;
+} 
+</script> -->
+</body>
+
+</html>
